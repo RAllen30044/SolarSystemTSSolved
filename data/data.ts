@@ -1,4 +1,53 @@
-export const data = {
+export type MassData = {
+  // something
+  massValue: number;
+  massExponent: number;
+};
+
+export type VolData = {
+  // something
+  volValue: number;
+  volExponent: number;
+};
+
+export type Planets = {
+  // something
+  id: string;
+  name: string;
+  isPlanet: boolean;
+  mass: MassData;
+  vol: VolData;
+  gravity: number;
+  avgTemp: number;
+  moonsCount?: number;
+  moons?: string[];
+};
+
+export type PlanetWithoutMoons = {
+  id: string;
+  name: string;
+  isPlanet: boolean;
+  mass: MassData;
+  vol: VolData;
+  gravity: number;
+  avgTemp: number;
+};
+
+
+export type Asteroid = {
+  // something
+  name: string;
+  discoveryYear: number;
+  orbitalPeriod: number;
+};
+
+export type AllData = {
+  // something
+  planets: Planets[]
+  asteroids: Asteroid[];
+};
+
+export const data:AllData = {
   planets: [
     {
       id: "uranus",

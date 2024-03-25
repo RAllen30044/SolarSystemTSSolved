@@ -7,6 +7,6 @@ describe("getPlanetNames", () => {
     expect(getFirstPlanetName).toBeInstanceOf(Function);
   });
   it("Should give me an array of the planet names", () => {
-    expect(getFirstPlanetName(data)).toEqual('Uranus');
+    expect(getFirstPlanetName(data)).toEqual("Uranus");
   });
 });

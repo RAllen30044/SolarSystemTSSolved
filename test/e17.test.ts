@@ -97,7 +97,7 @@ describe("maxBy", () => {
     });
   });
 
-  it("if 2 maxiumums are the same, it should be the first one in the array", () => {
+  it("if 2 maximums are the same, it should be the first one in the array", () => {
     people.push({ name: "joey", age: 30 });
     const returnVal = maxBy(people, (person) => person.age);
     expect(returnVal).toEqual({
