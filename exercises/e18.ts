@@ -8,7 +8,7 @@ import { Asteroid } from "../data/data";
 export function getGreatestDiscoveryYear(asteroids: Asteroid[]): number {
   const discoveryCountByYear: Record<number, number> = {};
 
-  // Populate the discoveryCountByYear object
+
   asteroids.forEach((asteroid) => {
     const year = asteroid.discoveryYear;
     if (!discoveryCountByYear[year]) {
@@ -16,7 +16,7 @@ export function getGreatestDiscoveryYear(asteroids: Asteroid[]): number {
     }
     discoveryCountByYear[year]++;
   });
-  // Find the year with the most discoveries
+
 
   const yearOfMaxCount = Object.entries(discoveryCountByYear).reduce(
     (acc, [year, count]) => {
