@@ -11,26 +11,22 @@ export function getGreatestDiscoveryYear(asteroids: Asteroid[]): number {
   // Populate the discoveryCountByYear object
   asteroids.forEach((asteroid) => {
     const year = asteroid.discoveryYear;
-    if (discoveryCountByYear[year]) {
-      discoveryCountByYear[year]++;
-    } else {
-      discoveryCountByYear[year] = 1;
+    if (!discoveryCountByYear[year]) {
+      discoveryCountByYear[year] = 0;
     }
+    discoveryCountByYear[year]++;
   });
   // Find the year with the most discoveries
-  let maxCount = 0;
-  let yearOfMaxCount = 0;
-  for (const year in discoveryCountByYear) {
-    const count = discoveryCountByYear[year];
-    if (count && count > maxCount) {
-      maxCount = count;
-      yearOfMaxCount = parseInt(year);
-    }
-  }
 
-  if (yearOfMaxCount === 0) {
-    throw new Error("Unable to determine the greatest discovery year.");
-  }
+  const yearOfMaxCount = Object.entries(discoveryCountByYear).reduce(
+    (acc, [year, count]) => {
+      if (count > acc.maxCount) {
+        return { maxYear: parseInt(year), maxCount: count };
+      }
+      return acc;
+    },
+    { maxYear: 0, maxCount: 0 }
+  ).maxYear;
 
   return yearOfMaxCount;
 }
